@@ -28,7 +28,7 @@ public class Principal {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 		preguntarNumeroCamellos(br);
 		preguntarDistancia(br);
-		//Comprobamos si los rangos introducidos son validos. Antes de ejecutar el programa.
+		//Comprobamos si los rangos introducidos son válidos. Antes de ejecutar el programa.
 		if(rangoCorrectoC && rangoCorrectoD ==true) {
 			try {
 				@SuppressWarnings("unused")
@@ -49,7 +49,7 @@ public class Principal {
 			catch(Exception error)
 			{
 				System.out.println("Error: "+error);
-				System.out.println("Por favor, introduce un numero correcto.");
+				System.out.println("Por favor, introduce un número correcto.");
 			}
 			if(distanciaMeta!=0) {
 				rangoCorrectoD=true;
@@ -58,14 +58,14 @@ public class Principal {
 	}
 	private static void preguntarNumeroCamellos(BufferedReader br) {
 		while((numeroCamellos==0)||(rangoCorrectoC==false)) {
-			System.out.println("¿Cuántos camellos participarán? Indica un numero del 2 al 10");
+			System.out.println("¿Cuántos camellos participarán? Indica un número del 2 al 10");
 			try {
 				numeroCamellos=Integer.parseInt(br.readLine());			
 			}
 			catch(Exception error)
 			{
 				System.out.println("Error: "+error);
-				System.out.println("Por favor, introduce un numero correcto.");
+				System.out.println("Por favor, introduzca un número correcto.");
 			}
 			switch(numeroCamellos) {
 			case 2: 
@@ -81,7 +81,7 @@ public class Principal {
 				rangoCorrectoC=true;
 				break;
 			default:
-				System.out.println("El numero intoducido no esta en el rango valido");
+				System.out.println("El número introducido no está en el rango válido");
 				break;
 			}
 		}

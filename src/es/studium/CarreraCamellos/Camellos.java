@@ -54,7 +54,7 @@ public class Camellos extends Thread implements Comparable<Camellos> {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 		}
-		if (probabilidadBola<=30)//30% ningun agujero, no avanza.
+		if (probabilidadBola<=30)//30% ningún agujero, no avanza.
 		{
 			resultado=0;
 		}
@@ -70,34 +70,31 @@ public class Camellos extends Thread implements Comparable<Camellos> {
 		{
 			resultado=3;
 		}
-		//Sumamos a la posicion del camello el resultado de la tirada.
+		//Sumamos a la posición del camello el resultado de la tirada.
 		posicionCamello+=resultado;
 		
 		if ((posicionCamello>=distanciaMeta)&&(!Principal.ganador))
 		{
 			cruzarMeta(posicionCamello);
 		}
-		//Si la posicion del camello es mayor que la posicion del camello primero
+		//Si la posición del camello es mayor que la posición del camello primero
 		if((posicionCamello>Carrera.getPosPrimero())&&(Carrera.getPosPrimero()<distanciaMeta))
 		{
-			//Establecemos la nueva posicion como primero
+			//Establecemos la nueva posición como primero
 			Carrera.setPosPrimero(posicionCamello);
-			//getName() Optiene el nombre del hilo.
-			//mostrarResultado = "El "+ Carrera.listacamellos[i].getName() + " avanza "+ resultado + ", va en la posición "+ posicionCamello +" y se encuentra en primera posición";
+			//getName() Obtiene el nombre del hilo.
 			mostrarResultado = "El "+ getName() + " avanza "+ resultado + ", avanza hasta la posición "+ posicionCamello +" y se encuentra en primera posición";
 		}
-		//Si la posicion del camello es igual que la posicion del camello primero
+		//Si la posición del camello es igual que la posición del camello primero
 		else if ((posicionCamello==Carrera.getPosPrimero())&&(Carrera.getPosPrimero()<distanciaMeta)&&(!Principal.ganador))
 		{
-			//getName() Optiene el nombre del hilo.
-			//mostrarResultado = "El "+ Carrera.listacamellos[i].getName() + " avanza "+ resultado + ", va en la posición "+ posicionCamello +" y va primero empatado con otro camello";
+			//getName() Obtiene el nombre del hilo.
 			mostrarResultado = "El "+ getName() + " avanza "+ resultado + ", avanza hasta la posición "+ posicionCamello +" y va primero empatado con otro camello";
 		}
-		//Si la posicion del camello es menor que la posicion del camello primero
+		//Si la posición del camello es menor que la posición del camello primero
 		else if ((Carrera.getPosPrimero()<distanciaMeta)&&(!Principal.ganador))
 		{
-			//getName() Optiene el nombre del hilo.
-			//mostrarResultado = "El "+ Carrera.listacamellos[i].getName() + " avanza "+ resultado + ", va en la posición "+ posicionCamello +" a "+obtenerDiferencia(Carrera.getPosPrimero())+ " posiciones del primero.";
+			//getName() Obtiene el nombre del hilo.
 			mostrarResultado = "El "+ getName() + " avanza "+ resultado + ", avanza hasta la posición "+ posicionCamello +" a "+obtenerDiferencia(Carrera.getPosPrimero())+ " posiciones del primero.";
 		}			
 		if (posicionCamello>=distanciaMeta)
@@ -119,18 +116,18 @@ public class Camellos extends Thread implements Comparable<Camellos> {
 	//Metodo compareTo para realizar el TOP.
 	public int compareTo(Camellos c) {
 		//Creamos dos variables.
-		//Esta varible es igual que el valor de PosActual de camello Actual.
+		//Esta variable es igual que el valor de PosActual de camello Actual.
 		Integer camello1 = this.posicionCamello; 
-		//Esta variable es igual que la posicion del camello pasado por parametro.
+		//Esta variable es igual que la posición del camello pasado por parametro.
 		Integer camello2= c.posicionCamello;
 		return camello1.compareTo(camello2);
-		//Devolvemos la comparacion.Para ordenar de menor a mayor.
+		//Devolvemos la comparación.Para ordenar de menor a mayor.
 	}
-	//Creamos un metodo sincronizado encargado de obtener las casillas de diferencia con respecto al primero.
+	//Creamos un método sincronizado encargado de obtener las casillas de diferencia con respecto al primero.
 	public synchronized int obtenerDiferencia(int posicionPrimero) { 
-		//Esta varible es igual que el valor de PosActual de camello Actual
+		//Esta variable es igual que el valor de PosActual de camello Actual
 		Integer camello1 = this.posicionCamello;
-		//Esta variable es igual a la posicion del primer camello.
+		//Esta variable es igual a la posición del primer camello.
 		Integer camello2= posicionPrimero;
 		//Devuelve la diferencia entre los camellos
 		return camello2 - camello1;

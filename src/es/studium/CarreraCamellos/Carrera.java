@@ -16,9 +16,8 @@ public class Carrera {
 	int numCamellos;
 	static Camellos listacamellos[];
 	int i=0;
-	//static ThreadGroup threadGroup = new ThreadGroup("Carrera");
 
-	//Contructor de la clase al que le pasamos el nº de camellos y la distancia de la carrera.
+	//Constructor de la clase al que le pasamos el nº de camellos y la distancia de la carrera.
 	public Carrera(int numCamellosCarrera,int distanciaMeta) throws InterruptedException
 	{	
 		listacamellos = new Camellos[numCamellosCarrera];
