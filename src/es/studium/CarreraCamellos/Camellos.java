@@ -29,11 +29,9 @@ public class Camellos extends Thread implements Comparable<Camellos> {
 					lanzarBola();
 				}else {
 					Thread.interrupted();
-					notifyAll();
 					break;
 				}
 			}
-			//muestraCarrera();
 		}
 	}
 
@@ -49,7 +47,6 @@ public class Camellos extends Thread implements Comparable<Camellos> {
 			Thread.sleep(segundos*1000);
 			if (Principal.ganador) {
 				Thread.interrupted();
-				notifyAll();
 			}
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -110,7 +107,6 @@ public class Camellos extends Thread implements Comparable<Camellos> {
 	public synchronized void cruzarMeta(int posicionCamello) {
 		if(!Principal.ganador) {
 			Principal.ganador = true;
-			notifyAll();
 		}
 	}
 	//Metodo compareTo para realizar el TOP.
